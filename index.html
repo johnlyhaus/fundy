@@ -9,5 +9,20 @@
     <!-- GoFundMe Embed Widget -->
     <div class="gfm-embed" data-url="https://www.gofundme.com/f/jackys-knee-op/widget/medium"></div>
     <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+
+    <script>
+        // Refresh the widget every 2 minutes (in milliseconds)
+        setInterval(function() {
+            // Reload the widget by removing and re-adding the script
+            var scriptElement = document.querySelector('script[src="https://www.gofundme.com/static/js/embed.js"]');
+            var parentElement = scriptElement.parentElement;
+            parentElement.removeChild(scriptElement);
+
+            var newScriptElement = document.createElement('script');
+            newScriptElement.src = "https://www.gofundme.com/static/js/embed.js";
+            parentElement.appendChild(newScriptElement);
+        }, 120000); // 2 minutes in milliseconds
+    </script>
 </body>
 </html>
+
